@@ -1,29 +1,101 @@
 ALGORITHM sum
 VAR
-  s,b,a:INTEGER;
-  ch:STRING;
-  test:BOOLEAN;
+  j,i,s,b,a:INTEGER;
+  ar1 : ARRAY_OF INTEGER[10];
+  ar2 : ARRAY_OF INTEGER[10];
+  isunk,test:BOOLEAN;
+  y:CHAR;
 BEGIN
-  i:=0;;
-  ch:="";
-  s:=0;
-  a:=0;
-  test:=false;
+s:=0;
+test := false;
+
+REPEAT
+  Read(ar2[s]);
   REPEAT
-    Write("can you give me sentence please ? character by character ");
-    Read(ch[i]);
-    IF (ch[i] = '.') THEN
-    test :=true;
-    ELSE_IF (ch[i] = ' ') THEN
-        s:= s+1;
-    ELSE_IF (ch[i] = ('a' OR 'A' OR 'E' OR 'e' OR 'I' OR 'i' OR 'O' OR 'o' OR 'U' OR 'u' ) THEN
-        a := 0;
+  IF (ar1.length < 1) THEN
+    break;
   ELSE
-        Write("Sorry can you add point at the end  if you want to submit the sentence !!");
-        i:=i+1;
+    Read(y);
+    test:= ((y=='o'OR y == 'O') OR (y=='N'OR y == 'n'));
   END_IF
-  UNTIL(test);
-  Write(i);
-  Write(s);
-  Write(s);
+  UNTIL (test)
+UNTIL ((y=='n'OR y=='N') OR ar1.length < 1);
+s:=0;
+test := false;
+REPEAT
+  Read(ar2[s]);
+  REPEAT
+  IF (ar2.length < 1) THEN
+    break;
+  ELSE
+    Read(y);
+    test:= ((y=='o'OR y == 'O') OR (y=='N'OR y == 'n'));
+  END_IF
+  UNTIL (test)
+UNTIL ((y=='n'OR y=='N') OR ar2.length < 1);
+FOR i FROM 1 TO ar1.length STEP 1  DO
+  
+  FOR j FROM 1 TO ar2.length STEP 1  DO
+  IF (ar1[i] == ar2[j] ) THEN
+    isunk:=false;
+    break;
+    
+    END_IF
+END_FOR
+  IF (isunk) THEN
+    s:=s+ar1[i];
+  END_IF
+END_FOR
+  Write("la sm of the element not present" + s);
+END
+
+ALGORITHM sum
+VAR
+  j,i,s,b,a:INTEGER;
+  ar1 : ARRAY_OF INTEGER[10];
+  ar2 : ARRAY_OF INTEGER[10];
+  isunk,test:BOOLEAN;
+  y:CHAR;
+BEGIN
+s:=0;
+test := false;
+
+REPEAT
+  Read(ar2[s]);
+  REPEAT
+  IF (ar1.length < 1) THEN
+    break;
+  ELSE
+    Read(y);
+    test:= ((y=='o'OR y == 'O') OR (y=='N'OR y == 'n'));
+  END_IF
+  UNTIL (test)
+UNTIL ((y=='n'OR y=='N') OR ar1.length < 1);
+s:=0;
+test := false;
+REPEAT
+  Read(ar2[s]);
+  REPEAT
+  IF (ar2.length < 1) THEN
+    break;
+  ELSE
+    Read(y);
+    test:= ((y=='o'OR y == 'O') OR (y=='N'OR y == 'n'));
+  END_IF
+  UNTIL (test)
+UNTIL ((y=='n'OR y=='N') OR ar2.length < 1);
+FOR i FROM 1 TO ar2.length STEP 1  DO
+  
+  FOR j FROM 1 TO ar1.length STEP 1  DO
+  IF (ar1[j] == ar2[i] ) THEN
+    isunk:=false;
+    break;
+    
+    END_IF
+END_FOR
+  IF (isunk) THEN
+    s:=s+ar2[j];
+  END_IF
+END_FOR
+  Write("la sm of the element not present" + s);
 END
