@@ -1,0 +1,29 @@
+ALGORITHM sum
+VAR
+  s,b,a:INTEGER;
+  ch:STRING;
+  test:BOOLEAN;
+BEGIN
+  i:=0;;
+  ch:="";
+  s:=0;
+  a:=0;
+  test:=false;
+  REPEAT
+    Write("can you give me sentence please ? character by character ");
+    Read(ch[i]);
+    IF (ch[i] = '.') THEN
+    test :=true;
+    ELSE_IF (ch[i] = ' ') THEN
+        s:= s+1;
+    ELSE_IF (ch[i] = ('a' OR 'A' OR 'E' OR 'e' OR 'I' OR 'i' OR 'O' OR 'o' OR 'U' OR 'u' ) THEN
+        a := 0;
+  ELSE
+        Write("Sorry can you add point at the end  if you want to submit the sentence !!");
+        i:=i+1;
+  END_IF
+  UNTIL(test);
+  Write(i);
+  Write(s);
+  Write(s);
+END
