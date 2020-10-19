@@ -49,7 +49,7 @@ END_FOR
   Write("la sm of the element not present" + s);
 END
 
-ALGORITHM sum
+ALGORITHM sum0
 VAR
   j,i,s,b,a:INTEGER;
   ar1 : ARRAY_OF INTEGER[10];
@@ -57,45 +57,5 @@ VAR
   isunk,test:BOOLEAN;
   y:CHAR;
 BEGIN
-s:=0;
-test := false;
 
-REPEAT
-  Read(ar2[s]);
-  REPEAT
-  IF (ar1.length < 1) THEN
-    break;
-  ELSE
-    Read(y);
-    test:= ((y=='o'OR y == 'O') OR (y=='N'OR y == 'n'));
-  END_IF
-  UNTIL (test)
-UNTIL ((y=='n'OR y=='N') OR ar1.length < 1);
-s:=0;
-test := false;
-REPEAT
-  Read(ar2[s]);
-  REPEAT
-  IF (ar2.length < 1) THEN
-    break;
-  ELSE
-    Read(y);
-    test:= ((y=='o'OR y == 'O') OR (y=='N'OR y == 'n'));
-  END_IF
-  UNTIL (test)
-UNTIL ((y=='n'OR y=='N') OR ar2.length < 1);
-FOR i FROM 1 TO ar2.length STEP 1  DO
-  
-  FOR j FROM 1 TO ar1.length STEP 1  DO
-  IF (ar1[j] == ar2[i] ) THEN
-    isunk:=false;
-    break;
-    
-    END_IF
-END_FOR
-  IF (isunk) THEN
-    s:=s+ar2[j];
-  END_IF
-END_FOR
-  Write("la sm of the element not present" + s);
 END
