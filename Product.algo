@@ -1,0 +1,52 @@
+FUNCTION validtion(ar1:ARRAY_OF INTEGER, ar2:ARRAY_OF INTEGER) : BOOLEAN
+VAR
+    sum :INTEGER;
+BEGIN
+     sum:=0,
+    FOR i FROM 0 TO ar1 STEP 1  DO
+     sum := sum + (ar1[i]*ar2[i]);
+    END_FOR
+    IF (sum == 0) THEN
+        RETURN true ;
+    ELSE
+      RETURN false;
+    END_IF
+END
+
+PROCEDURE read_array(VAR ar1:ARRAY_OF INTEGER,VAR ar2:ARRAY_OF INTEGER)
+VAR
+    i:INTEGER;
+BEGIN
+     FOR i FROM 1 TO 3 STEP 1  DO
+     IF (i==1) THEN
+          Write("give me x1 ,x2 ");
+          Read(ar1[i]);
+          Read(ar2[i]);
+     ELSE_IF (i==2) THEN
+          Write("give me y1 ,y2");
+          Read(ar1[i]);
+          Read(ar2[i]);
+     ELSE
+        Write("give me z1 ,z2 ");
+        Read(ar1[i]);
+        Read(ar2[i]);
+     END_IF
+      
+    END_FOR
+    IF (validtion(ar1,ar2)) THEN
+        Write("Vectors of given IR are orthogonal, ");
+        ELSE
+        Write("Vectors of given IR are not orthogonal, ");
+    END_IF
+END
+
+
+ALGORITHM vectors
+VAR
+    ar1 : ARRAY_OF INTEGER[10];
+    ar1 : ARRAY_OF INTEGER[10];
+
+ 
+BEGIN
+ read_array(ar1 , ar2);
+END
