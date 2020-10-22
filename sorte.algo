@@ -1,0 +1,75 @@
+
+PROCEDURE insertionSort(Var arr : ARRAY_OF INTEGER,n:INTEGER)
+VAR
+    i, key, j : INTEGER
+BEGIN
+    FOR i FROM 1 TO n STEP 1  DO
+        key := arr[i];
+        j:=i-1;
+        WHILE (j>= 0  && arr[j] > key) DO
+            arr[j + 1] := arr[j];  
+            j := j - 1;
+        END_WHILE
+        arr[j + 1] := key; 
+    END_FOR
+END
+
+PROCEDURE affich(arr : ARRAY_OF INTEGER,n:INTEGER)
+VAR
+    i:INTEGER;
+BEGIN
+    FOR i FROM 1 TO n STEP 1  DO
+        Write(arr[i]);
+    END_FOR
+END
+
+ALGORITHM insert_sort
+VAR
+    arr : ARRAY_OF INTEGER[10];
+
+BEGIN
+    int  := [ 12, 11, 13, 5, 6 ];  
+    insertionSort(arr, arr.length);  
+    printArray(arr, arr.length);  
+END
+/*
+
+
+
+
+void insertionSort(int arr[], int n)  
+{  
+    int i, key, j;  
+    for (i = 1; i < n; i++) 
+    {  
+        key = arr[i];  
+        j = i - 1;   
+        while (j >= 0 && arr[j] > key) 
+        {  
+            arr[j + 1] = arr[j];  
+            j = j - 1;  
+        }  
+        arr[j + 1] = key;  
+    }  
+}  
+  
+// A utility function to print an array of size n  
+void printArray(int arr[], int n)  
+{  
+    int i;  
+    for (i = 0; i < n; i++)  
+        cout << arr[i] << " ";  
+    cout << endl; 
+}  
+  
+/* Driver code 
+int main()  
+{  
+    int arr[] = { 12, 11, 13, 5, 6 };  
+    int n = sizeof(arr) / sizeof(arr[0]);  
+  
+    insertionSort(arr, n);  
+    printArray(arr, n);  
+  
+    return 0;  
+} */
